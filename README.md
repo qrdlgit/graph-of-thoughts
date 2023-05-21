@@ -39,17 +39,6 @@ print('r2_score:', r2_score(y_test, predictions))
 ```
 
 Not wanting to do a lot of copy/pasting I asked GPT4 to write a program for me to do this 'graph of thoughts' approach.  (I say graph rather than tree, because cycles can exist).
-
-Here's the prompt: 
-
-"Assume a function exists called get_response(prompt) which will make a request to GPT4 and return a response.  You don't have to create that code.  
-Now create a python program which when given a base source filename of a Python program that prints out r2_score: <score> will send to getResponse(""Please improve the r2_score metric of the following code. 
-Do not provide an explanation, just the code and no additional text.\n\n"+contents of source).  
-It will than take the response and remove any boundary characters like "```", save it to a filename which represents its position in the tree (like 'n0.py') and then execute it.  
-It will then record the r2_score that is outputed.  It will do this three times, and then pick the run with the best accuracy, which will be the best parent to run from.  
-Make this program run recursively and ensure that the filenames of the source tracks the position of the source in the tree.  Output the filenames and r2_score after each run."
-    
-It created get_best_model.py, which I added a bit of retry logic to and then ran.
     
 Here are the results:
 
@@ -75,11 +64,11 @@ You can find the source for these in the repo.
     
 --
     
-There are a lot of optimisations that you can do here, limited only by your imagination (and the 8k/32k context window).  Some ideas are in the paper linked to above, some you'll find on various places where this concept is discussed. 
+There are a lot of optimisations that you can do here, limited only by your imagination (and the 8k/32k context window).  Some ideas are in the paper linked to above, some you'll find on various places where this concept is discussed. Basic ideas include: dupe checks, pruning, backtracking and monte carlo.  
 
-Among the various obvious ones like dupe checks, pruning, backtracking and monte carlo - the particular optimisation I'm interested in trying next is recording insights gained on each run and refeeding them so that GPT4 can learn from previous changes its made.  
+I've added some basic insight tracking as per above, which wasn't exactly in the tree of thoughts paper.  This also isn't strictly graph like, as the insights carry globaly. GPT4 tokens do start to add up after awhile.
 
-Another idea I'd like to try is appending a set of selected techniques to suggest to GPT4 that it might try.  This last idea might seem a bit like cheating, but it's worth realizing that the library of techniques doesn't need to be in a format exactly like the problem, just enough to hint to GPT4 to try them.  Impediance mismatch is not a problem, so these techniques can be reused for any arbitrary ML problem.
+Another idea I'd like to try is appending a set of selected techniques to suggest to GPT4 that it might try.  This might seem a bit like cheating, but GPT4 isn't AGI and it needs some help.  Not that much help though, as the library of techniques doesn't need to be in a format exactly like the problem, just enough to hint to GPT4 to try them.  Impedance mismatch is not a problem and these techniques can be mostly reused for any arbitrary ML problem.
 
 --
     
@@ -92,7 +81,7 @@ FAQ
     
 2. Why did it take so long for GPT4 to try something other than linear models?
     
-    I noticed that as well.  Some prompt engineering might help, but I think it's more of an indication as to the limits of GPT4 reasoning.  Better use of the context window and prompt can help here.
+    I noticed that as well, it's an indication as to the limits of GPT4 reasoning capabilities.  Better use of the context window by adding rules of thumb / heuristics would help.
     
 --    
 
