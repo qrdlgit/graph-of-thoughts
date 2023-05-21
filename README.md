@@ -87,7 +87,7 @@ FAQ
 
 You might encounter some folks lower down in the stack that will call this '[prompt hacking](https://twitter.com/karpathy/status/1659653943754891279)', but for their benefit I'd like to share this XKCD comic.
    
-![image](https://github.com/qrdlgit/graph-of-thoughts/assets/129564070/09b3f3ca-a6c4-4e30-9f8d-e6748aacfe79)
+![image](https://github.com/qrdlgit/graph-of-thoughts/assets/129564070/ff2e9afa-da02-4e7c-922b-0dce87933034)
 
 
 One can even argue there is a formal/propositional logic person even to the right of that.  The point is - everyone has a role to play in the tree of knowledge, why worry about it?
