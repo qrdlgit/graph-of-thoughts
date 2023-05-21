@@ -6,7 +6,9 @@ But the idea of combining the two tasks didn't come to me until reading this pap
 
 It's a simple idea (depth/breadth first search on a tree of chain of thoughts), but sometimes the simple ideas are the best ones, even if they are fairly high up in the stack.
 
-To that end, I started with a basic sklearn dataset and code and asked GTP4 to improve its r2_score.  The starting point was this, base.py:
+To that end, I started with a basic sklearn dataset and code and asked GTP4 to improve its r2_score.  The starting point was this, base.py.  
+
+data.pkl is the california housing dataset, stored as 'data.pkl' so as not to clue GPT4 in as to what the optimal alg should be from its training data.
 
 ```
 from sklearn import datasets
