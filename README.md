@@ -42,6 +42,8 @@ Not wanting to do a lot of copy/pasting I asked GPT4 to write a program for me t
     
 Here are the results:
 
+(these insights get fed to each prompt as they're discovered -> only the last row on the list had all of the insights minus one in the prompt)
+
 | Insight | Initial File | New File | Initial Score | New Score |
 |---------|--------------|----------|---------------|-----------|
 | Changing the model from LinearRegression to Ridge with alpha=1.0 and adding StandardScaler | base.py | base_n0.py | 0.575 | 0.576 |
