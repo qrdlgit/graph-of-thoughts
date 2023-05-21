@@ -4,7 +4,9 @@ The following is based on a paper recently hitting arxiv - "Tree of Thoughts" ht
 
 The concept is depth/breadth first search on a tree of chain of thoughts using LLMs.
 
-For this 'graph of thoughts' approach, it is a bit different version of the paper.  It creates 3 alternative paths, and then chooses the best one and tries to improve that.  It loops recursively until ctrl-C.
+For this 'graph of thoughts' approach, it is a bit different version of the paper. It is being used to autonomously improve an ML program.
+
+It creates 3 alternative paths, and then chooses the best one and tries to improve that.  It loops recursively until ctrl-C.
 
 It starts with a basic sklearn dataset and code and then we ask GTP4 to improve its r2_score.  The starting point was the following code, base.py in the repo.  
 
