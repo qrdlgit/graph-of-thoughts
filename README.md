@@ -1,5 +1,8 @@
 # graph-of-thoughts
 
+(Note that this was published months before the https://github.com/spcl/graph-of-thoughts repo & paper. I don't think they based their work off this repo, but some kind of ack would have been polite)
+
+
 The following is based on a paper recently hitting arxiv - "Tree of Thoughts" https://arxiv.org/abs/2305.10601
 
 The concept is depth/breadth first search on a tree of chain of thoughts using LLMs.
